@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Winky Sans', sans-serif;
+}
+
+body {
+    background-color: rgb(173, 199, 238);
+}
+
+.piano {
+    background-color: black;
+    width: 1000px;
+    height: 400px;
+    margin: 100px auto 0 ;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls {
+    color: rgba(255, 255, 255, 0.8 );
+    padding: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.controls h1 {
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.switcher {
+    width: 50px;
+    height: 25px;
+    background-color: #555;
+    display: flex;
+    border-radius: 50px;
+    padding: 4px;
+}
+
+.switcher_button {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: #ddd;
+    border-radius: 25px;
+}
+
+.switcher_ativado {
+    background-color: #00ceff;
+    justify-content: flex-end;
+}
+
+.checkbox_label {
+    display: flex;
+    gap: 15px;
+}
+
+.piano_teclas {
+    width: 100%;
+    height: 300px;
+    background-color: #181818;
+    border-radius: 15px;
+    padding: 30px 40px;
+    display: flex;
+}
+
+.branco {
+    background-color: white;
+    flex-grow: 1;
+    border-radius: 5px;
+    border-bottom: 8px solid #ddd;
+    color: rgba(0,0,0,0.3);
+}
+
+.key span {
+    font-weight: 600;
+    position: absolute;
+}
+
+.key {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-items: center;
+    padding-bottom: 8px;
+    user-select: none;
+}
+
+.preto {
+    width: 40px;
+    background-color: linear-gradient(black, #333);
+    height: 150px;
+    border-radius: 0 0 5px 5px;
+    border-bottom: 8px solid #222;
+    margin-left: 20px;
+    
+}
