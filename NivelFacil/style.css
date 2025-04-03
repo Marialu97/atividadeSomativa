@@ -1,31 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
-*{
+/* Resetando os estilos padrões */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Winky Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Cor de fundo padrão */
 body {
-    background-color: rgb(173, 199, 238);
+    background-color: #ebebeb;
 }
 
+/* Estrutura do piano */
 .piano {
-    background-color: black;
+    background-color: #121212; /* Padrão escuro */
     width: 1000px;
     height: 400px;
-    margin: 100px auto 0 ;
+    margin: 100px auto 0;
     border-radius: 20px;
-    color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Controle superior */
 .controls {
-    color: rgba(255, 255, 255, 0.8 );
+    color: rgba(255, 255, 255, 0.8);
     padding: 30px;
     display: flex;
     width: 100%;
@@ -37,6 +41,7 @@ body {
     font-size: 1.4rem;
 }
 
+/* Botão de mostrar teclas */
 .switcher {
     width: 50px;
     height: 25px;
@@ -46,24 +51,38 @@ body {
     padding: 4px;
 }
 
-.switcher_button {
+.switcher__button {
     height: 100%;
     aspect-ratio: 1/1;
     background-color: #ddd;
     border-radius: 25px;
 }
 
-.switcher_ativado {
-    background-color: #00ceff;
+.switcher--active {
+    background-color: #006eff;
     justify-content: flex-end;
 }
 
-.checkbox_label {
-    display: flex;
-    gap: 15px;
+/* Botão de alternância de tema */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #006eff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
-.piano_teclas {
+.theme-toggle:hover {
+    background-color: #0057cc;
+}
+
+/* Teclas do piano */
+.piano__keys {
     width: 100%;
     height: 300px;
     background-color: #181818;
@@ -72,35 +91,120 @@ body {
     display: flex;
 }
 
-.branco {
+/* Teclas brancas */
+.white {
     background-color: white;
     flex-grow: 1;
     border-radius: 5px;
     border-bottom: 8px solid #ddd;
-    color: rgba(0,0,0,0.3);
+    color: rgba(0, 0, 0, 0.3);
     margin-left: -17px;
+    z-index: 1;
 }
 
+/* palavra no piano */
 .key span {
     font-weight: 600;
     position: absolute;
+    transition-duration: 300ms;
 }
 
 .key {
     position: relative;
     display: flex;
     align-items: flex-end;
-    justify-items: center;
+    justify-content: center;
     padding-bottom: 8px;
     user-select: none;
 }
 
-.preto {
+
+/* Teclas pretas */
+.black {
     width: 40px;
-    background-color: linear-gradient(black, #333);
+    background: linear-gradient(black, #333);
     height: 150px;
     border-radius: 0 0 5px 5px;
     border-bottom: 8px solid #222;
     margin-left: -20px;
     z-index: 2;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* separacao das teclas  brancas*/
+.piano__keys .white:nth-child(1) {
+    margin-left: 0;
+}
+
+.piano__keys .white:nth-child(5) {
+    margin-right: 20px;
+}
+
+.piano__keys .white:nth-child(12) {
+    margin-right: 20px;
+}
+
+.piano__keys .white:nth-child(17) {
+    margin-right: 20px;
+}
+
+/* Estado das teclas pressionadas */
+.black--pressed {
+    background: linear-gradient(#222, black);
+    border-bottom: none;
+    height: 148px;
+}
+
+/* Mostrar teclas quando habilitado */
+.disabled-keys span {
+    opacity: 0;
+}
+
+/* Modo claro: alterando a cor de fundo */
+body.light-mode {
+    background-color: #f1f1f1;
+}
+
+body.light-mode .piano {
+    background-color: #006eff;
+}
+
+body.light-mode .piano__keys {
+    background-color: #cce7ff;
+}
+
+/* Modo escuro: alterando a cor de fundo */
+body.dark-mode {
+    background-color: #121212;
+}
+
+body.dark-mode .piano {
+    background-color: #6a1b9a;
+}
+
+body.dark-mode .piano__keys {
+    background-color: #181818;
+}
+
+
+/* Estilo para as notas musicais */
+.note {
+    position: absolute;
+    bottom: 100px;
+    font-size: 1.5rem;
+    color: rgb(239, 72, 72);
+    animation: moveUp 3s forwards;
+}
+
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
 }
